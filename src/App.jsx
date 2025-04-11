@@ -16,6 +16,7 @@ function App() {
 
     for (let i = 0; i < 10; i++) {
       const fact = await fetchFact();
+      console.log(fact);
       newFacts.push(fact);
     }
 
@@ -42,7 +43,8 @@ function App() {
   }, [loadMoreFacts, loading]);
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-8">
+    <section className="bg-yellow-50/40">
+    <div className="max-w-4xl mx-auto px-6 py-8 ">
       <h1 className="text-3xl font-bold mb-6 text-center text-indigo-600">
         Infinite Scroll - Fun Facts
       </h1>
@@ -50,7 +52,7 @@ function App() {
       {facts.map((fact, idx) => (
         <div
           key={idx}
-          className="relative bg-white shadow-sm p-6 rounded-lg mb-6 border border-gray-100 transition-transform duration-200 hover:scale-[1.02] hover:shadow-md cursor-pointer">
+          className="relative shadow-md bg-yellow-50/50 p-6 rounded-lg mb-6 border border-gray-200 transition-transform duration-200 hover:scale-[1.02] hover:shadow-lg cursor-pointer">
           <div className="text-lg font-semibold text-gray-800">
             <span className="block font-semibold text-indigo-500 mb-1">
               #{idx + 1}
@@ -63,7 +65,7 @@ function App() {
             &rdquo;
           </div>
 
-          {/* Author (fake one for now) */}
+          {/* Author */}
           <div className="text-right mt-4 text-sm italic font-medium text-gray-500">
             — Anonymous
           </div>
@@ -76,6 +78,7 @@ function App() {
         </div>
       )}
     </div>
+    </section>
   );
 }
 
